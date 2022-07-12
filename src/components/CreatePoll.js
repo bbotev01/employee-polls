@@ -4,9 +4,10 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { handleAddQuestion } from '../actions/questions';
-
+import { useNavigate } from "react-router-dom";
 
 function CreatePoll(props) {
+    let navigate = useNavigate();
     const [firstOption, setFirstOption] = useState("");
     const [secondOption, setSecondOption] = useState("");
 
@@ -23,8 +24,10 @@ function CreatePoll(props) {
     function handleSubmit(e) {
         e.preventDefault();
         props.dispatch(handleAddQuestion(firstOption, secondOption));
+        navigate("/", { replace: true })
         setFirstOption("");
         setSecondOption("")
+
     }
 
     return (

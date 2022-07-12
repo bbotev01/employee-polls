@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import CreatePoll from './CreatePoll';
 import Poll from './Poll';
 import Leaderboard from './Leaderboard';
+import NotFound from './NotFound';
 import { handleInitialData } from "../actions/shared";
 import { useEffect, Fragment } from "react";
 import LoadingBar from "react-redux-loading-bar";
@@ -31,8 +32,9 @@ function App(props) {
             <Route exact path="/" element={<Dashboard />} />
             <Route exact path="/leaderboard" element={<Leaderboard />} />
             <Route exact path="/add" element={<CreatePoll />} />
-            <Route path="/poll/:id" element={<Poll />} />
+            <Route path="/question/:id" element={<Poll />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </Fragment>

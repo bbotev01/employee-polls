@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, USER_VOTE } from "../actions/users";
+import { RECEIVE_USERS, USER_VOTE, USER_QUESTION_LINK } from "../actions/users";
 
 export default function users(state = {}, action) {
     switch (action.type) {
@@ -17,6 +17,14 @@ export default function users(state = {}, action) {
                         ...state[authedUser].answers,
                         [qid]: answer
                     }
+                }
+            };
+        case USER_QUESTION_LINK:
+            return {
+                ...state,
+                [action.authedUser]: {
+                    ...state[action.authedUser],
+                    questions: state[action.authedUser].questions.concat([action.qid])
                 }
             };
         default:

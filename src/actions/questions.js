@@ -1,6 +1,6 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 import { saveQuestion, saveQuestionAnswer } from "../utils/api";
-import { userVote } from "./users";
+import { userVote, userQuestionLink } from "./users";
 
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
@@ -25,7 +25,10 @@ export function handleAddQuestion(firstOption, secondOption) {
             optionTwoText: secondOption,
             author: authedUser
         })
-            .then((question) => dispatch(addQuestion(question)))
+            .then((question) => {
+                dispatch(addQuestion(question))
+                dispatch(userQuestionLink(question.id, authedUser))
+            })
             .then(() => dispatch(hideLoading()));
     };
 }
