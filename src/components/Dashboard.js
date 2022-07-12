@@ -36,7 +36,7 @@ function Dashboard(props) {
     const handleClick = (e) => {
         e.preventDefault()
         let id = e.target.getAttribute('data-id')
-        navigate(`/question/${id}`, { replace: true })
+        navigate(`/questions/${id}`, { replace: true })
     }
 
     return (

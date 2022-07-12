@@ -32,7 +32,7 @@ function App(props) {
             <Route exact path="/" element={<Dashboard />} />
             <Route exact path="/leaderboard" element={<Leaderboard />} />
             <Route exact path="/add" element={<CreatePoll />} />
-            <Route path="/question/:id" element={<Poll />} />
+            <Route path="/questions/:id" element={<Poll />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
